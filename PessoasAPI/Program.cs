@@ -13,23 +13,17 @@ namespace PessoasAPI
     {
         public static void Main(string[] args)
         {
-            // CreateHostBuilder(args).Build().Run();
+             CreateHostBuilder(args).Build().Run();
 
-
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-            builder.Services.Configure<ApiProjetoDatabase>(
-                builder.Configuration.GetSection("ApiProjetoDatabase"));
         }
 
      
 
-      /*  public static IHostBuilder CreateHostBuilder(string[] args) =>
+       public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });*/
+                });
     }
 }

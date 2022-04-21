@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using PessoasAPI.Modelos;
+using PessoasAPI.Servicos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,8 @@ namespace PessoasAPI
 
             services.AddSingleton<IApiProjetoDatabase>(sp =>
                 (IApiProjetoDatabase)sp.GetRequiredService<IOptions<ApiProjetoDatabase>>().Value);
+
+            services.AddSingleton<PessoasService>();
 
             services.AddControllers();
         }

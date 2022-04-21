@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace PessoasAPI.Modelos
 {
-    public class ApiProjetoDatabase
+    public class ApiProjetoDatabase : IApiProjetoDatabase
     {
         public string ConexaoString { get; set; }
 
         public string NomeBanco { get; set; }
 
-        public string NomeColecaoPessoas { get; set; } = null!;
+        public string ColecaoPessoas { get; set; } = null!;
     }
 
 
@@ -19,7 +19,7 @@ namespace PessoasAPI.Modelos
     {
         string ConexaoString { get; set; }
         string NomeBanco { get; set; }
-        string NomeColecaoPessoas { get; set; }
+        string ColecaoPessoas { get; set; }
     }
 }
 
