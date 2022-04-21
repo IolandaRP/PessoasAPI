@@ -6,7 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using PessoasAPI.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +34,15 @@ namespace PessoasAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PessoasAPI", Version = "v1" });
             });
+
+            // requires using Microsoft.Extensions.Options
+            services.Configure<ApiProjetoDatabase>(
+                Configuration.GetSection(nameof(ApiProjetoDatabase)));
+
+            services.AddSingleton<IApiProjetoDatabase>(sp =>
+                (IApiProjetoDatabase)sp.GetRequiredService<IOptions<ApiProjetoDatabase>>().Value);
+
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
