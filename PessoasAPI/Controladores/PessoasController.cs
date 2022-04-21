@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace PessoasAPI.Controladores
 {
-       [Microsoft.AspNetCore.Components.Route("api/pessoas")]
-       [ApiController]
-       public class PessoasController : ControllerBase
+    [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
+    [ApiController]
+    public class PessoasController : ControllerBase
        {
             private readonly PessoasService _pessoasService;
 
