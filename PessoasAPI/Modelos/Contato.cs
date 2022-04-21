@@ -14,5 +14,6 @@ namespace PessoasAPI.Modelos
         [BsonElement("email")]
         public string email { get; set; }
 
+
     }
 }
